@@ -15,7 +15,7 @@
 - [X] Tâche C : Création d'une maquette
 - [X] Tâche Jalon : Jalon de présentation du projet en l'état actuel.
 - [X] Tâche D : Commencer la création du projet en symfony + mise en place des fichiers sur github.
-- [ ] Tâche E : Intégrer boostrap au projet.
+- [X] Tâche E : Intégrer boostrap au projet.
 - [ ] Tâche F : Intégrer easyAdmin au projet.
 - [ ] Tâche G : Créer les entités nécéssaire au projet.
 - [ ] Tâche H : Creation des différentes pages du projet (Sans Style).
