@@ -65,7 +65,7 @@ class __TwigTemplate_d887ef7bb710bbc2221d34000d7ac8a7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello HomeController!";
+        echo "Accueil";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -85,22 +85,10 @@ class __TwigTemplate_d887ef7bb710bbc2221d34000d7ac8a7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class=\"example-wrapper\">
-    <h1>Hello ";
-        // line 12
-        echo twig_escape_filter($this->env, (isset($context["controller_name"]) || array_key_exists("controller_name", $context) ? $context["controller_name"] : (function () { throw new RuntimeError('Variable "controller_name" does not exist.', 12, $this->source); })()), "html", null, true);
-        echo "! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/kimiko/dev/Stage-Diocese-de-Gap/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/home/kimiko/dev/Stage-Diocese-de-Gap/templates/home/index.html.twig</code></li>
-    </ul>
+        echo "
+<div class=\"home\">
+<img src=\"img/home.jpg\"/>
+    <p>test</p>
 </div>
 ";
         
@@ -132,29 +120,20 @@ class __TwigTemplate_d887ef7bb710bbc2221d34000d7ac8a7 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class=\"example-wrapper\">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/kimiko/dev/Stage-Diocese-de-Gap/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>/home/kimiko/dev/Stage-Diocese-de-Gap/templates/home/index.html.twig</code></li>
-    </ul>
+<div class=\"home\">
+<img src=\"img/home.jpg\"/>
+    <p>test</p>
 </div>
 {% endblock %}
 ", "home/index.html.twig", "/home/kimiko/dev/Stage-Diocese-de-Gap/templates/home/index.html.twig");
