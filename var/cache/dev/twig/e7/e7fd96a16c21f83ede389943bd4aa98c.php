@@ -62,9 +62,11 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
         // line 9
         $this->displayBlock('body', $context, $blocks);
         // line 10
-        echo "        ";
-        $this->displayBlock('javascripts', $context, $blocks);
+        echo "        <script src=\"https://kit.fontawesome.com/84f57e19ad.js\" crossorigin=\"anonymous\"></script>
+        ";
         // line 11
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 12
         echo "    </body>
 </html>
 ";
@@ -132,7 +134,7 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
 
     }
 
-    // line 10
+    // line 11
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -164,7 +166,7 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
      */
     public function getDebugInfo()
     {
-        return array (  136 => 10,  118 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  138 => 11,  120 => 9,  101 => 6,  82 => 5,  70 => 12,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -178,6 +180,7 @@ class __TwigTemplate_5ee18a366853878666f899fb5a49370c extends Template
     </head>
     <body>
         {% block body %}{% endblock %}
+        <script src=\"https://kit.fontawesome.com/84f57e19ad.js\" crossorigin=\"anonymous\"></script>
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
     </body>
 </html>
