@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	{% dump(content) %}
+	<div class="event">
+		<img src="{{ event.img }}" class="img-fluid layout" alt="Image de {{ event.name }}">
+		{% for quote in quotes %}
+			<section class="bg-light">
+				<div class="container py-5 h-100">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col col-lg-10 col-xl-8">
+							<figure class="note note-secondary p-4">
+								<blockquote class="blockquote">
+									<p class="pb-2">
+										{{ quote.title }}
+									</p>
+									<p class="pb-2">
+										«
+										{{ quote.text }}
+										»
+									</p>
+								</blockquote>
+								<figcaption class="blockquote-footer mb-0">
+									{{ quote.author }}
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</section>
+		{% endfor %}
+		<div class="container text-center">
+			<div class="row">
+				{% for pillar in pillars %}
+					<div class="col">
+						<form action="#{{ pillar.id }}" method="get">
+							{% if pillar.startDate|date("d/m/Y") > "now"|date("d/m/Y") %}
+								<div class="card mb-3 hidden">
+									<i class="{{ pillar.icon }}"></i>
+									<div class="card-body">
+										<h5 class="card-title">{{ pillar.name }}</h5>
+										<p class="card-text">Le pilier prière sera mis en ligne le
+											{{ pillar.startDate|date("d/m/Y") }}</p>
+									</div>
+								</div>
+							{% else %}
+								<div class="card mb-3">
+									<i class="{{ pillar.icon }}"></i>
+									<div class="card-body">
+										<h5 class="card-title">{{ pillar.name }}</h5>
+										<p class="card-text">{{ pillar.text }}</p>
+										<input type="text" hidden="hidden" id="{{ pillar.name }}"></input>
+									<button type="submit" name="card" value="{{ pillar.id }}" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						{% endif %}
+					</form>
+				</div>
+			{% endfor %}
+		</div>
+		{% for content in content %}
+		
+			{% if app.request.requesturi == "/?card=" ~ content.name.id  %}
+			{{ content.id }}
+				<div class="embed-responsive embed-responsive-16by9" id="{{ content.name.id }}">
+					<iframe width="1070" height="451" src="https://www.youtube.com/embed/HTPeWHZ2RPQ" title="Un Carême pour prier car avec le Carême vient le temps salvateur du désert." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+				<div>
+					<h3>Thérèse et la prière</h3>
+					<p>Thérèse est sans doute la fille la plus connectée de la bande. Saura-t-elle quitter son smartphone des yeux, tandis qu’elle explore avec ses amis de nouveaux horizons ? Quand elle ouvre les yeux sur la beauté du monde, Thérèse retrouve le chemin de la prière. Son cœur est prêt ; une rencontre inattendue l’attend, pour sa plus grande joie.</p>
+				</div>
+				<div class="container py-5 h-100">
+					<div class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col col-lg-9 col-xl-7">
+							<div class="card" style="border-radius: 15px;">
+								<div class="card-body p-5">
+									<div class="text-center mb-4 pb-2">
+										<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-quotes/bulb.webp" alt="Bulb" width="100">
+									</div>
+									<figure class="text-center mb-0">
+										<blockquote class="blockquote">
+											<p class="pb-3">
+												<i class="fas fa-quote-left fa-xs text-primary"></i>
+												<span class="lead font-italic">Je suis croyante depuis l’enfance, mais Dieu me paraissait toujours inaccessible, loin de ma vie. J’essayais de vivre en chrétienne, mais ça sonnait un peu creux. Quand j’ai appris à prier (au début, c’était avec des amis), c’est comme si on m’avait donné la clé d’une porte verrouillée. Derrière la porte, il y avait le Seigneur qui m’attendait, les bras ouverts ! Ce qui me manquait avant, c’était d’avoir une relation personnelle avec Dieu. La prière, c’est cette relation vivante, toujours nouvelle. Le plus beau c’est que, grâce à la prière, j’ai enfin compris ce que voulait dire « donner sa vie » !</span>
+												<i class="fas fa-quote-right fa-xs text-primary"></i>
+											</p>
+										</blockquote>
+										<figcaption class="blockquote-footer mb-0">
+											Thérèse
+										</figcaption>
+									</figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% else %}
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>{% endblock %}

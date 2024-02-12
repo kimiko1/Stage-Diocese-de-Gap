@@ -28,8 +28,8 @@ final class Version20240209102905 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TEMPORARY TABLE __temp__home AS SELECT id FROM home');
         $this->addSql('DROP TABLE home');
-        $this->addSql('CREATE TABLE home (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)');
-        $this->addSql('INSERT INTO home (id) SELECT id FROM __temp__home');
-        $this->addSql('DROP TABLE __temp__home');
+        $this->addSql('CREATE TABLE evenement (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)');
+        $this->addSql('INSERT INTO evenement (id) SELECT id FROM __temp__evenement');
+        $this->addSql('DROP TABLE __temp__evenement');
     }
 }

@@ -1,6 +1,5 @@
-.home {
+.event {
     .layout {
-        height: 532.652px;
         width: 100%;
     }
 
@@ -11,4 +10,17 @@
     section {
         margin-bottom: 5px;
     }
-}   
+
+
+    .hidden {
+        opacity: 50%;
+        button:active {
+            display: none;
+        }
+
+    }
+
+    .visible {
+        opacity: 100%;
+    }
+}
