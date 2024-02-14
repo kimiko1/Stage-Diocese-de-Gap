@@ -63,6 +63,3 @@ Stage de deuxième année de <b>BTS SIO</b> au lycée Dominique Villars
 - [Suivie de stage.](https://docs.google.com/document/d/19riinlN57bzkztlI_Pb8UdQf1YqKHO0ervbC9oBJK6Q/edit#heading=h.mbjsiz6n6jlo)
 - [Cahier des charges.](https://docs.google.com/document/d/1P0kyywvMcfMYqyHCLGkM-YLVYJBDp6XoYpLlRj58eXc/edit)
 - [Maquettes du site de Pâque.](https://www.figma.com/file/djjyoE4gJxyb7ZBRsuklYQ/Dioc%C3%A8se-Gap?type=design&node-id=0-1&mode=design&t=xzWRQ3dhKk9a0I7z-0)
-- [Maquette du site de l'école de Saint Coeur.](https://www.figma.com/file/Z88W21siLG6TkDl0R2A7S5/Ecole-Saint-Coeur?type=design&node-id=0-1&mode=design&t=YSzzvPmzmqze3jq8-0)
-- [Diagramme npm.](https://app.diagrams.net/#G1FJQcjcVBjJwD1fVKMcPn8zz_wdhhxCQq)
-- [Hiérarchie du Diocèse de Gap.](https://miro.com/app/board/uXjVN8CY260=/)
