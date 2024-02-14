@@ -17,12 +17,12 @@
 - [X] Tâche D : Commencer la création du projet en symfony + mise en place des fichiers sur github.
 - [X] Tâche E : Intégrer boostrap au projet.
 - [X] Tâche F : Intégrer easyAdmin au projet.
-- [ ] Tâche G : Créer les entités nécéssaire au projet.
-- [ ] Tâche H : Creation des différentes pages du projet (Sans Style).
-- [ ] Tâche Jalon2 : Jalon de présentation du projet en l'état actuel.
-- [ ] Tâche I : Stylisation des pages du projets.
-- [ ] Tâche Jalon3 : Jalon de présentation du projet en l'état actuel.
-- [ ] Tâche J : Création de la partie admin notament les contrôleurs.
+- [X] Tâche G : Créer les entités nécéssaire au projet.
+- [X] Tâche H : Creation des différentes pages du projet (Sans Style).
+- [X] Tâche Jalon2 : Jalon de présentation du projet en l'état actuel.
+- [X] Tâche I : Stylisation des pages du projets.
+- [X] Tâche Jalon3 : Jalon de présentation du projet en l'état actuel.
+- [X] Tâche J : Création de la partie admin notament les contrôleurs.
 
 ## Diagramme
 
