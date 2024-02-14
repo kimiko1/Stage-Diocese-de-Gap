@@ -24,31 +24,53 @@ class EventCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        // Il on essaye de modifier un évènement déjà existant
         if ($pageName == 'edit') {
+            // On retourne
             return [
+                // Le nom de l'évènement
                 TextField::new('name'),
+                // L'image de l'évènement
                 TextField::new('img'),
+                // Les citations associées sans pouvoir les modifiers
                 AssociationField::new('quotes')
                     ->setDisabled(),
+                // Les piliers associés sans pouvoir les modifiers
                 AssociationField::new('pillars')
                     ->setDisabled(),
+                // La date de début de l'évènement
                 DateField::new('startDate'),
+                // La date de fin de l'évènement
                 DateField::new('endDate'),
             ];
+            // Sinon si on créer un nouvel évènement
         }elseif ($pageName == 'new'){
+            // On retourne
             return [
+                // Le nom de l'évènement
                 TextField::new('name'),
+                // L'image de l'évènement 
                 TextField::new('img'),
+                // La date de début de l'évènement
                 DateField::new('startDate'),
+                // La date de fin de l'évènement
                 DateField::new('endDate'),
             ];
+            // Sinon on n'est pas entrain de modifier un évènement déjà existant ou que l'on en créer pas de nouveau
         }else
+        // On retourne
         return [
+            // Le nom de l'évènement
             TextField::new('name'),
+            // L'image de l'évènement
             TextField::new('img'),
+            // Les citations associées à l'évènement
             AssociationField::new('quotes'),
+            // Les piliers associés à l'évènement
             AssociationField::new('pillars'),
+            // La date de début de l'évènement
             DateField::new('startDate'),
+            // La date de fin de l'évènement
             DateField::new('endDate'),
         ];
     }

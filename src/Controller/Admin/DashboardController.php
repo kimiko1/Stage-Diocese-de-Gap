@@ -47,10 +47,14 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        // Le crud des évènements
         yield MenuItem::linkToCrud('Event', 'fas fa-home', Event::class);
+        // Le crud des citations
         yield MenuItem::linkToCrud('Quotes', 'fas fa-home', Quotes::class);
+        // Le crud des piliers
         yield MenuItem::linkToCrud('Pillars', 'fas fa-home', Pillars::class);
+        // Le crud des contenues
         yield MenuItem::linkToCrud('Content', 'fas fa-home', Content::class);
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        // Pour pouvoir ajouté un crud supplémentaire : yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

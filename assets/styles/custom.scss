@@ -1,26 +1,51 @@
+// Les évènements
 .event {
+    // Conteneur de l'image de présentation du site
     .layout {
+        // On lui met une largeur de 100%
         width: 100%;
     }
 
+    // Les images 
+    .img-fluid {
+        height: 578px;
+    }
+    
+
     figure {
+        // On centre le texte
         text-align: center;
     }
 
+
     section {
-        margin-bottom: 5px;
+        // On ajoute une marge de 35 pixels en bas
+        margin-bottom: 35px;
     }
 
 
+    // Classe permettant de montrer que l'élément n'est pas 
     .hidden {
+        // On baisse l'opacité de 50%
         opacity: 50%;
-        button:active {
-            display: none;
+    }
+    // Classe presentation
+    .presentation {
+        // On lui attribues une disposition flex
+        display: flex;
+        // On range les éléments dedans en colonne
+        flex-direction: column;
+        // On les centre
+        align-items: center;
+        // Les citations
+        .quote {
+            // On affiche la bordure à gauche
+            border-left: solid;
+            // On lui donne une couleur à la bordure visible
+            border-left-color: #5c3044;
+            // On donne une couleur au titre de la citation
+            color: #5c3044;
         }
-
     }
 
-    .visible {
-        opacity: 100%;
-    }
 }

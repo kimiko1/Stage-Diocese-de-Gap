@@ -4,26 +4,33 @@
 {% endblock %}
 
 {% block body %}
-	{% dump(content) %}
 	<div class="event">
-		<img src="{{ event.img }}" class="img-fluid layout" alt="Image de {{ event.name }}">
+		<img
+		src="{{ event.img }}" class="img-fluid layout" alt="Image de {{ event.name }}">
+		{# Pour chaque citation dans les citations envoyées à la vues #}
 		{% for quote in quotes %}
-			<section class="bg-light">
+			<section style='background-color: #c1c1c1;' class="">
 				<div class="container py-5 h-100">
 					<div class="row d-flex justify-content-center align-items-center h-100">
 						<div class="col col-lg-10 col-xl-8">
 							<figure class="note note-secondary p-4">
 								<blockquote class="blockquote">
-									<p class="pb-2">
+									<p
+										class="pb-2">
+										{# On affiche le titre de la citation #}
 										{{ quote.title }}
 									</p>
-									<p class="pb-2">
+									<p
+										class="pb-2">
+										{# On affiche le texte de la citation #}
 										«
 										{{ quote.text }}
 										»
 									</p>
 								</blockquote>
-								<figcaption class="blockquote-footer mb-0">
+								<figcaption
+									class="blockquote-footer mb-0">
+									{# On affiche l'auteur de la citation #}
 									{{ quote.author }}
 								</figcaption>
 							</figure>
@@ -33,72 +40,97 @@
 			</section>
 		{% endfor %}
 		<div class="container text-center">
-			<div class="row">
+			<div
+				class="row">
+				{# Pour chaque piliers envoyées à la vue #}
 				{% for pillar in pillars %}
 					<div class="col">
-						<form action="#{{ pillar.id }}" method="get">
-							{% if pillar.startDate|date("d/m/Y") > "now"|date("d/m/Y") %}
+						<form
+							action="#{{ pillar.id }}" method="get">
+							{# Si la date actuelle est plus grande ou égale à la date de démarrage du pilier et que le mois actuelle est supérieur ou égale à la date de démarrage du pilier #}
+							{% if "now"|date("d/n/Y") >= pillar.startDate|date("d/n/Y")  and "now"|date("n") >= pillar.startDate|date("n") and "now"|date("Y") == pillar.startDate|date("Y")%}
+								<div
+									class="card mb-3">
+									{# On affiche l'icon du pilier #}
+									<i class="{{ pillar.icon }}"></i>
+									<div
+										class="card-body">
+										{# On affiche le titre du pilier #}
+										<h5 class="card-title">{{ pillar.name }}</h5>
+										{# On affiche le text du pilier #}
+										<p class="card-text">{{ pillar.text }}</p>
+										{# On cache  envoie le formulaire pour pouvoir afficher le contenu du pilier #}
+										<button type="submit" name="card" value="{{ pillar.id }}" class="btn btn-primary">En savoir plus</button>
+									</div>
+								</div>
+								{# Sinon la date actuelle est plus petite que la date de démarrage du pillier et que le moi actuelle est inférieur à la date de démarrage du pilier #}
+							{% else %}
+							{# La div prend une class hidden qui va faire en sorte de baisser son opacitée #}
 								<div class="card mb-3 hidden">
+								{# On affiche l'icon #}
 									<i class="{{ pillar.icon }}"></i>
 									<div class="card-body">
+									{# On affiche le titre du pilier #}
 										<h5 class="card-title">{{ pillar.name }}</h5>
-										<p class="card-text">Le pilier prière sera mis en ligne le
+										{# On affiche un message stipulant que le pilier n'est pas encore mis en ligne et qu'il le sera en affichant la date de démarrage du pilier #}
+										<p class="card-text">Le pilier "{{ pillar.name }}" sera mis en ligne le
 											{{ pillar.startDate|date("d/m/Y") }}</p>
 									</div>
 								</div>
-							{% else %}
-								<div class="card mb-3">
-									<i class="{{ pillar.icon }}"></i>
-									<div class="card-body">
-										<h5 class="card-title">{{ pillar.name }}</h5>
-										<p class="card-text">{{ pillar.text }}</p>
-										<input type="text" hidden="hidden" id="{{ pillar.name }}"></input>
-									<button type="submit" name="card" value="{{ pillar.id }}" class="btn btn-primary">Submit</button>
-								</div>
-							</div>
-						{% endif %}
-					</form>
-				</div>
-			{% endfor %}
-		</div>
-		{% for content in content %}
-		
-			{% if app.request.requesturi == "/?card=" ~ content.name.id  %}
-			{{ content.id }}
-				<div class="embed-responsive embed-responsive-16by9" id="{{ content.name.id }}">
-					<iframe width="1070" height="451" src="https://www.youtube.com/embed/HTPeWHZ2RPQ" title="Un Carême pour prier car avec le Carême vient le temps salvateur du désert." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-				</div>
-				<div>
-					<h3>Thérèse et la prière</h3>
-					<p>Thérèse est sans doute la fille la plus connectée de la bande. Saura-t-elle quitter son smartphone des yeux, tandis qu’elle explore avec ses amis de nouveaux horizons ? Quand elle ouvre les yeux sur la beauté du monde, Thérèse retrouve le chemin de la prière. Son cœur est prêt ; une rencontre inattendue l’attend, pour sa plus grande joie.</p>
-				</div>
-				<div class="container py-5 h-100">
-					<div class="row d-flex justify-content-center align-items-center h-100">
-						<div class="col col-lg-9 col-xl-7">
-							<div class="card" style="border-radius: 15px;">
-								<div class="card-body p-5">
-									<div class="text-center mb-4 pb-2">
-										<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-quotes/bulb.webp" alt="Bulb" width="100">
+								{# Fin de la condition si et sinon des piliers #}
+							{% endif %}
+						</form>
+					</div>
+					{# Fin pour la boucle des piliers #}
+				{% endfor %}
+			</div>
+			{# Pour chaque contenu dans contenu #}
+			{% for content in content %}
+				{# Si le paramètre de l'url est égale a /?card= plus l'id du pilier stockée dans le contenu #}
+				{% if app.request.requesturi == "/?card=" ~ content.name.id  %}
+					<div class="embed-responsive embed-responsive-16by9" id="{{ content.name.id }}" style="margin-bottom: 15px;">
+					{# On affiche la vidéo du contenu #}
+						<iframe width="560" height="315" src="{{ content.linkVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					</div>
+					<div class="presentation">
+					{# On affiche le titre du présentation du contenu  #}
+						<h3>{{ content.presentationTitle }}</h3>
+						{# On affiche le texte de présentation du contenu #}
+						<p>{{ content.presentationText }}</p>
+					</div>
+					<div class="container py-5 h-100">
+						<div class="row d-flex justify-content-center align-items-center h-100">
+							<div class="col col-lg-9 col-xl-7">
+								<div class="card" style="border-radius: 15px;">
+									<div class="card-body p-5">
+										<div class="text-center mb-4 pb-2">
+											<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-quotes/bulb.webp" alt="Bulb" width="100">
+										</div>
+										<figure class="text-center mb-0">
+											<blockquote class="blockquote">
+												<p class="pb-3">
+													<i class="fas fa-quote-left fa-xs text-primary"></i>
+													{# On affiche le texte de la citation de la carte présente dans le contenu #}
+													<span class="lead font-italic">{{ content.cardQuote }}</span>
+													<i class="fas fa-quote-right fa-xs text-primary"></i>
+												</p>
+											</blockquote>
+											<figcaption class="blockquote-footer mb-0">
+											{# On affiche l'autheur de la citation de la carte présente dans le contenu #}
+												{{ content.cardQuoteAuthor }}
+											</figcaption>
+										</figure>
 									</div>
-									<figure class="text-center mb-0">
-										<blockquote class="blockquote">
-											<p class="pb-3">
-												<i class="fas fa-quote-left fa-xs text-primary"></i>
-												<span class="lead font-italic">Je suis croyante depuis l’enfance, mais Dieu me paraissait toujours inaccessible, loin de ma vie. J’essayais de vivre en chrétienne, mais ça sonnait un peu creux. Quand j’ai appris à prier (au début, c’était avec des amis), c’est comme si on m’avait donné la clé d’une porte verrouillée. Derrière la porte, il y avait le Seigneur qui m’attendait, les bras ouverts ! Ce qui me manquait avant, c’était d’avoir une relation personnelle avec Dieu. La prière, c’est cette relation vivante, toujours nouvelle. Le plus beau c’est que, grâce à la prière, j’ai enfin compris ce que voulait dire « donner sa vie » !</span>
-												<i class="fas fa-quote-right fa-xs text-primary"></i>
-											</p>
-										</blockquote>
-										<figcaption class="blockquote-footer mb-0">
-											Thérèse
-										</figcaption>
-									</figure>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				{% else %}
-			{% endif %}
-		{% endfor %}
+					{# Sinon vu que nous n'avons rien à afficher tant que l'utilisateur n'as pas cliqué sur un des boutons on laisse le "else" vide #}
+					{% else %}
+					{# Fin du Si l'utilisateur a cliqué sur un des boutons #}
+				{% endif %}
+				{# Fin de la boucle des contenues #}
+			{% endfor %}
+		</div>
 	</div>
-</div>{% endblock %}
+{% endblock %}

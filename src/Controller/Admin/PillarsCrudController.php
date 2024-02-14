@@ -20,12 +20,19 @@ class PillarsCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
+        // On retourne
         return [
+            // Le nom du pilier
             TextField::new('name'),
+            // L'icon du pilier
             TextField::new('icon'),
+            // Le texte du pilier
             TextField::new('text'),
+            // La date de commencement du pilier
             DateField::new('startDate'),
+            // Le contenu associé au pilier
             AssociationField::new('content'),
+            // L'évènement associé au pilier
             AssociationField::new('event'),
         ];
 

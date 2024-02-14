@@ -20,10 +20,15 @@ class QuotesCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {
+        // On retourne
         return [
+            // L'évènement associé à la citation
             AssociationField::new('nameOfTheEvent'),
+            // Le titre de la citation
             TextField::new('title'),
+            // Le texte de la citation
             TextareaField::new('text'),
+            // L'auteur de la citation
             TextField::new('author'),
         ];
     }
